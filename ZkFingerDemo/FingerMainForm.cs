@@ -7,13 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Diagnostics;
+using CheckBase;
 
 namespace ZkFingerDemo
 {
     public partial class FingerMainForm : Form
     {
-        frmInputFingerPrint frmInput;
-        frmUserIdentify frmIdentify;
         public FingerMainForm()
         {
             InitializeComponent();
@@ -39,13 +38,13 @@ namespace ZkFingerDemo
             Score = Convert.ToInt32(_ObjectArray.GetValue(1));
             if (ID == -1)
             {
-                frmIdentify.change_control_state(1, null);
+                Program.frmIdentify.change_control_state(1, null);
                 //lblresult.Text = "Fingerprint Auto Identify Failed!";
             }
             else
             {
                 //lblresult.Text = "Fingerprint Auto identification success!";
-                frmIdentify.change_control_state(0, ID);
+                Program.frmIdentify.change_control_state(0, ID);
             }
         }
         //取得指纹初始特征，0:好的指纹特征  1:特征点不够
@@ -54,12 +53,12 @@ namespace ZkFingerDemo
             String strTemp = "指纹采集质量";
             if (e.aQuality != 0)
             {
-                frmInput.change_control_state(frmInputFingerPrintState.get_bad_print, null);
+                Program.frmInput.change_control_state(frmInputFingerPrintState.get_bad_print, null);
                 strTemp = strTemp + "较差";
             }
             else
             {
-                frmInput.change_control_state(frmInputFingerPrintState.get_good_print, null);
+                Program.frmInput.change_control_state(frmInputFingerPrintState.get_good_print, null);
                 strTemp = strTemp + "良好";
             }
             if (ZKFPEngX1.IsRegister && ZKFPEngX1.EnrollIndex > 1)
@@ -92,14 +91,17 @@ namespace ZkFingerDemo
                 //ZKFPEngX1.AddRegTemplateToFPCacheDB(fpcHandle, 1, e.aTemplate);
                 //ZKFPEngX1.AddRegTemplateStrToFPCacheDBEx(fpcHandle, 1, ZKFPEngX1.GetTemplateAsStringEx("9"), ZKFPEngX1.GetTemplateAsStringEx("10"));
                 string tmp9 = ZKFPEngX1.GetTemplateAsStringEx("9");
-                nsConfigDB.ConfigDB.saveConfig(frmInput.currentUserName, tmp9);
-                frmInput.change_control_state(frmInputFingerPrintState.register_print_success, null);
+                //nsConfigDB.ConfigDB.saveConfig(frmInput.currentUserName, tmp9);
+                Program.play_voice("指纹登记成功！");
+                Program.frmInput.change_control_state(frmInputFingerPrintState.register_print_success, null);
                 ShowHintInfo("指纹登记成功！");
+
+                frmStudentM.set_fp_string(tmp9);
             }
             else
             {
                 ShowHintInfo("指纹登记失败");
-                frmInput.change_control_state(frmInputFingerPrintState.register_print_failed, null);
+                Program.frmInput.change_control_state(frmInputFingerPrintState.register_print_failed, null);
                 //MessageBox.Show("指纹登记失败", "提示! ", MessageBoxButtons.YesNo);
             }
 
@@ -156,8 +158,8 @@ namespace ZkFingerDemo
 
         private void button1_Click(object sender, EventArgs e)
         {
-            frmInput = new frmInputFingerPrint();
-            frmInput.ShowDialog();
+            Program.frmInput = new frmInputFingerPrint();
+            Program.frmInput.ShowDialog();
             //ZKFPEngX1.CancelEnroll();
             //ZKFPEngX1.EnrollCount = 3;
             //ZKFPEngX1.BeginEnroll();
@@ -171,8 +173,8 @@ namespace ZkFingerDemo
         }
         private void button1_Click_1(object sender, EventArgs e)
         {
-            frmIdentify = new frmUserIdentify();
-            frmIdentify.ShowDialog();
+            Program.frmIdentify = new frmUserIdentify();
+            Program.frmIdentify.ShowDialog();
         }
 
         private void 断开指纹仪DToolStripMenuItem_Click(object sender, EventArgs e)
@@ -185,14 +187,14 @@ namespace ZkFingerDemo
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            frmInput = new frmInputFingerPrint();
-            frmInput.ShowDialog();
+            Program.frmInput = new frmInputFingerPrint();
+            Program.frmInput.ShowDialog();
         }
 
         private void 用户识别IToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmIdentify = new frmUserIdentify();
-            frmIdentify.ShowDialog();
+            Program.frmIdentify = new frmUserIdentify();
+            Program.frmIdentify.ShowDialog();
         }
 
         private void btnConnect_Click(object sender, EventArgs e)
@@ -207,8 +209,23 @@ namespace ZkFingerDemo
 
         private void 指纹登记RToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmInput = new frmInputFingerPrint();
-            frmInput.ShowDialog();
+            Program.frmInput = new frmInputFingerPrint();
+            Program.frmInput.ShowDialog();
+        }
+        FrmStudentManage frmStudentM;
+        private void 学生管理MToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmStudentM = new FrmStudentManage();
+            frmStudentM.ShowDialog();
+        }
+
+        private void 开始考勤SToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //frmIdentify = new frmUserIdentify();
+            //frmIdentify.ShowDialog();
+
+            frmCheckInit frm = new frmCheckInit();
+            frm.ShowDialog();
         }
     }
 }

@@ -17,6 +17,19 @@ namespace ZkFingerDemo
         {
             InitializeComponent();
             this.lblState.Text = string.Empty;
+
+            this.Shown += new EventHandler(frmInputFingerPrint_Shown);
+            this.FormClosing += new FormClosingEventHandler(frmInputFingerPrint_FormClosing);
+        }
+
+        void frmInputFingerPrint_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Program.g_ZKFP.CancelEnroll();
+        }
+
+        void frmInputFingerPrint_Shown(object sender, EventArgs e)
+        {
+            this.restart_register();
         }
         public void change_control_state(frmInputFingerPrintState state, object o)
         {
@@ -26,15 +39,33 @@ namespace ZkFingerDemo
                     btnStart.Visible = true;
                     btnCancel.Visible = false;
                     this.pictureBox3.Image = global::ZkFingerDemo.Properties.Resources.指纹3;
-                    this.matrixCircularProgressControl1.Stop();
-                    this.lblState.Text = "指纹登记成功";
-                    this.txtName.ReadOnly = false;
+                    //this.matrixCircularProgressControl1.Stop();
+                    //this.lblState.Text = "指纹登记成功";
+                    //this.txtName.ReadOnly = false;
+                    this.Close();
                     break;
                 case frmInputFingerPrintState.register_print_failed://登记指纹失败
                     btnStart.Visible = true;
                     btnCancel.Visible = false;
                     this.lblState.Text = "指纹登记失败";
-                    this.reset_picbox_state();
+
+
+                    DialogResult result;
+                    string message = "指纹登记失败，要重新登记吗？";
+                    string caption = "登记失败";
+                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                    // Displays the MessageBox.
+                    result = MessageBox.Show(message, caption, buttons);
+                    if (result == DialogResult.Yes)
+                    {
+                        this.restart_register();
+                    }
+                    else
+                    {
+                        this.Close();
+                    }
+                    
+                    //this.reset_control_state();
                     break;
                 case frmInputFingerPrintState.get_good_print://获取合格指纹
                     this.pbState.Image = global::ZkFingerDemo.Properties.Resources.指纹对号;
@@ -68,7 +99,7 @@ namespace ZkFingerDemo
                 }
                 else
                 {
-                    this.reset_picbox_state();
+                    this.reset_control_state();
                     this.currentUserName = this.txtName.Text;
                     this.txtName.ReadOnly = true;
                     this.matrixCircularProgressControl1.Start();
@@ -85,21 +116,35 @@ namespace ZkFingerDemo
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Program.g_ZKFP.CancelEnroll();
-            btnStart.Visible = true;
-            btnCancel.Visible = false;
+            //Program.g_ZKFP.CancelEnroll();
+            //btnStart.Visible = true;
+            //btnCancel.Visible = false;
 
-            this.matrixCircularProgressControl1.Stop();
-            this.reset_picbox_state();
+            //this.matrixCircularProgressControl1.Stop();
+            //this.reset_control_state();
+
+            this.Close();
         }
-        void reset_picbox_state()
+        void restart_register()
         {
             passed_print_count = 0;
+            reset_control_state();
+            this.matrixCircularProgressControl1.Start();
+            Program.g_ZKFP.CancelEnroll();
+            Program.g_ZKFP.EnrollCount = 3;
+            Program.g_ZKFP.BeginEnroll();
+            this.lblInfo.Text = "采集" + currentUserName + "的指纹中...";
+        }
+        void reset_control_state()
+        {
             this.txtName.ReadOnly = false;
             this.pbState.Image = global::ZkFingerDemo.Properties.Resources.指纹空白;
             this.pictureBox1.Image = global::ZkFingerDemo.Properties.Resources.指纹空白;
             this.pictureBox2.Image = global::ZkFingerDemo.Properties.Resources.指纹空白;
             this.pictureBox3.Image = global::ZkFingerDemo.Properties.Resources.指纹空白;
+
+            btnStart.Visible = false;
+            btnCancel.Visible = true;
         }
 
         private void frmInputFingerPrint_Load(object sender, EventArgs e)

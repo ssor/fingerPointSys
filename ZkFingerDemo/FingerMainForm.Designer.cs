@@ -36,15 +36,15 @@
             this.连接指纹仪CToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.断开指纹仪DToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.退出XToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.操作ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.用户识别IToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.考勤CToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.学生管理MToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.开始考勤SToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于AToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.版本说明VToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.版本历史VToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.ZKFPEngX1 = new AxZKFPEngXControl.AxZKFPEngX();
-            this.指纹登记RToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.版本说明VToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ZKFPEngX1)).BeginInit();
             this.SuspendLayout();
@@ -71,7 +71,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.文件FToolStripMenuItem,
-            this.操作ToolStripMenuItem,
+            this.考勤CToolStripMenuItem,
             this.关于AToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -109,21 +109,28 @@
             this.退出XToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.退出XToolStripMenuItem.Text = "退出(&X)";
             // 
-            // 操作ToolStripMenuItem
+            // 考勤CToolStripMenuItem
             // 
-            this.操作ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.指纹登记RToolStripMenuItem,
-            this.用户识别IToolStripMenuItem});
-            this.操作ToolStripMenuItem.Name = "操作ToolStripMenuItem";
-            this.操作ToolStripMenuItem.Size = new System.Drawing.Size(60, 21);
-            this.操作ToolStripMenuItem.Text = "操作(&C)";
+            this.考勤CToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.学生管理MToolStripMenuItem,
+            this.开始考勤SToolStripMenuItem});
+            this.考勤CToolStripMenuItem.Name = "考勤CToolStripMenuItem";
+            this.考勤CToolStripMenuItem.Size = new System.Drawing.Size(60, 21);
+            this.考勤CToolStripMenuItem.Text = "考勤(&C)";
             // 
-            // 用户识别IToolStripMenuItem
+            // 学生管理MToolStripMenuItem
             // 
-            this.用户识别IToolStripMenuItem.Name = "用户识别IToolStripMenuItem";
-            this.用户识别IToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.用户识别IToolStripMenuItem.Text = "用户识别(&I)";
-            this.用户识别IToolStripMenuItem.Click += new System.EventHandler(this.用户识别IToolStripMenuItem_Click);
+            this.学生管理MToolStripMenuItem.Name = "学生管理MToolStripMenuItem";
+            this.学生管理MToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.学生管理MToolStripMenuItem.Text = "学生管理(&M)";
+            this.学生管理MToolStripMenuItem.Click += new System.EventHandler(this.学生管理MToolStripMenuItem_Click);
+            // 
+            // 开始考勤SToolStripMenuItem
+            // 
+            this.开始考勤SToolStripMenuItem.Name = "开始考勤SToolStripMenuItem";
+            this.开始考勤SToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.开始考勤SToolStripMenuItem.Text = "开始考勤(&S)";
+            this.开始考勤SToolStripMenuItem.Click += new System.EventHandler(this.开始考勤SToolStripMenuItem_Click);
             // 
             // 关于AToolStripMenuItem1
             // 
@@ -132,6 +139,12 @@
             this.关于AToolStripMenuItem1.Name = "关于AToolStripMenuItem1";
             this.关于AToolStripMenuItem1.Size = new System.Drawing.Size(60, 21);
             this.关于AToolStripMenuItem1.Text = "关于(&A)";
+            // 
+            // 版本说明VToolStripMenuItem
+            // 
+            this.版本说明VToolStripMenuItem.Name = "版本说明VToolStripMenuItem";
+            this.版本说明VToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.版本说明VToolStripMenuItem.Text = "版本说明(&V)";
             // 
             // 关于AToolStripMenuItem
             // 
@@ -161,19 +174,6 @@
             this.ZKFPEngX1.Size = new System.Drawing.Size(24, 24);
             this.ZKFPEngX1.TabIndex = 20;
             this.ZKFPEngX1.Visible = false;
-            // 
-            // 指纹登记RToolStripMenuItem
-            // 
-            this.指纹登记RToolStripMenuItem.Name = "指纹登记RToolStripMenuItem";
-            this.指纹登记RToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.指纹登记RToolStripMenuItem.Text = "指纹登记(&R)";
-            this.指纹登记RToolStripMenuItem.Click += new System.EventHandler(this.指纹登记RToolStripMenuItem_Click);
-            // 
-            // 版本说明VToolStripMenuItem
-            // 
-            this.版本说明VToolStripMenuItem.Name = "版本说明VToolStripMenuItem";
-            this.版本说明VToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.版本说明VToolStripMenuItem.Text = "版本说明(&V)";
             // 
             // FingerMainForm
             // 
@@ -213,11 +213,11 @@
         private System.Windows.Forms.ToolStripMenuItem 版本历史VToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 断开指纹仪DToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 连接指纹仪CToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 操作ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem 用户识别IToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 关于AToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem 指纹登记RToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 版本说明VToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 考勤CToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 学生管理MToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 开始考勤SToolStripMenuItem;
     }
 }

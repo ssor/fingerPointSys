@@ -32,9 +32,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Community.CsharpSqlite, Version=3.7.7.1, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\Community.CsharpSqlite.dll</HintPath>
+    </Reference>
+    <Reference Include="Community.CsharpSqlite.SQLiteClient, Version=3.7.7.1, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\Community.CsharpSqlite.SQLiteClient.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Speech">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -50,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigDB.cs" />
+    <Compile Include="CsharpSQLiteHelper.cs" />
     <Compile Include="enums.cs" />
     <Compile Include="FingerMainForm.cs">
       <SubType>Form</SubType>
@@ -63,17 +75,24 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="frmCheckInit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="frmCheckInit.designer.cs">
+      <DependentUpon>frmCheckInit.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCheckInitctl.cs" />
     <Compile Include="frmInputFingerPrint.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmInputFingerPrint.Designer.cs">
       <DependentUpon>frmInputFingerPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmStudentManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStudentManage.designer.cs">
+      <DependentUpon>FrmStudentManage.cs</DependentUpon>
     </Compile>
     <Compile Include="frmUserIdentify.cs">
       <SubType>Form</SubType>
@@ -96,11 +115,14 @@
       <DependentUpon>Form1.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="frmCheckInit.resx">
+      <DependentUpon>frmCheckInit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmInputFingerPrint.resx">
       <DependentUpon>frmInputFingerPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmStudentManage.resx">
+      <DependentUpon>FrmStudentManage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUserIdentify.resx">
       <DependentUpon>frmUserIdentify.cs</DependentUpon>
@@ -171,6 +193,7 @@
     <Content Include="Resources\指纹叉号.jpg" />
     <Content Include="Resources\指纹对号.jpg" />
     <Content Include="Resources\指纹空白.jpg" />
+    <Content Include="sql.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

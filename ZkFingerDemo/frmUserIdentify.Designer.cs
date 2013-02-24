@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUserIdentify));
             this.btnStart = new System.Windows.Forms.Button();
             this.lblName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -37,19 +38,20 @@
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(150, 321);
+            this.btnStart.Location = new System.Drawing.Point(154, 332);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(97, 23);
             this.btnStart.TabIndex = 0;
             this.btnStart.Text = "开始";
             this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Visible = false;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblName.Location = new System.Drawing.Point(109, 25);
+            this.lblName.Location = new System.Drawing.Point(132, 25);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(56, 16);
             this.lblName.TabIndex = 2;
@@ -58,7 +60,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::ZkFingerDemo.Properties.Resources.business_user_search;
-            this.pictureBox1.Location = new System.Drawing.Point(107, 50);
+            this.pictureBox1.Location = new System.Drawing.Point(135, 50);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(182, 203);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -69,7 +71,7 @@
             // 
             this.matrixCircularProgressControl1.BackColor = System.Drawing.Color.Transparent;
             this.matrixCircularProgressControl1.Interval = 60;
-            this.matrixCircularProgressControl1.Location = new System.Drawing.Point(163, 256);
+            this.matrixCircularProgressControl1.Location = new System.Drawing.Point(191, 256);
             this.matrixCircularProgressControl1.MinimumSize = new System.Drawing.Size(28, 28);
             this.matrixCircularProgressControl1.Name = "matrixCircularProgressControl1";
             this.matrixCircularProgressControl1.Rotation = LogisTechBase.MatrixCircularProgressControl.Direction.CLOCKWISE;
@@ -82,15 +84,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(396, 356);
+            this.ClientSize = new System.Drawing.Size(453, 324);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.matrixCircularProgressControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmUserIdentify";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "指纹识别";
+            this.Text = "正在考勤";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
