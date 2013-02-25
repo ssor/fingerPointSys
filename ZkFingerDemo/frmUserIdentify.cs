@@ -20,7 +20,7 @@ namespace ZkFingerDemo
         {
             InitializeComponent();
 
-            this.lblName.Text = "输入你的指纹，让我看看你是谁？";
+            this.lblName.Text = "请录入你的指纹";
             this.FormClosing += (o, e) =>
             {
                 //Program.g_ZKFP.CancelCapture();
@@ -64,10 +64,27 @@ namespace ZkFingerDemo
                 Program.g_ZKFP.AddRegTemplateStrToFPCacheDB(Program.g_zkfp_handle, index, tmp);
                 index_user_list.Add(index, id);
             }
+            this.refresh_check_list();
+
             //开始1：N识别
 
             Program.g_ZKFP.SetAutoIdentifyPara(true, Program.g_zkfp_handle, 8);
             this.matrixCircularProgressControl1.Start();
+        }
+        void refresh_check_list()
+        { 
+            // 初始化待考勤人员列表
+            string select_not_checked = "select p.xh \"学号\", p.xm \"姓名\" "
+                + "from person_info_min as p  where p.xh not in(select xh from CheckRecords where record_id = '{0}');";
+            DataTable dt_not_checked = CsharpSQLiteHelper.ExecuteTable(select_not_checked, new object[] { this.unique_check_id });
+            this.dgvNotChecked.DataSource = dt_not_checked;
+            this.gbNotChecked.Text = string.Format("待考勤共{0}人", dt_not_checked.Rows.Count.ToString());
+            //初始化已考勤人员
+            string select_checked = "select p.xh \"学号\", p.xm \"姓名\" "
+                + "from person_info_min as p  where p.xh in(select xh from CheckRecords where record_id = '{0}');";
+            DataTable dt_checked = CsharpSQLiteHelper.ExecuteTable(select_checked, new object[] { this.unique_check_id });
+            this.dgvChecked.DataSource = dt_checked;
+            this.gbChecked.Text = string.Format("已考勤共{0}人", dt_checked.Rows.Count.ToString());        
         }
         public void change_control_state(int state, object o)
         {
@@ -80,6 +97,7 @@ namespace ZkFingerDemo
                     string insert_check_record = string.Format("replace into CheckRecords(record_id,checkDate,xh) values('{0}','{1}','{2}');",
                        this.unique_check_id, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), xh);
                     CsharpSQLiteHelper.ExecuteNonQuery(insert_check_record, null);
+                    this.refresh_check_list();
                     DataRow[] rows = this.person_list.Select(string.Format("xh='{0}'", xh));
                     if (rows.Length > 0)
                     {

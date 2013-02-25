@@ -28,14 +28,11 @@ namespace CheckBase
                 this.ShowPerson();
                 MessageBox.Show("指纹登记成功！", "提示");
             }
-
-
         }
         void FrmRfidCheck_StudentManage_FormClosed(object sender, FormClosedEventArgs e)
         {
 
         }
-        Boolean bRefreshParentForm = false;
 
         private void ShowPerson()
         {
@@ -154,7 +151,6 @@ namespace CheckBase
             //                                                     txtbj.Text,
             //                                                     txtnj.Text,
             //                                                     null));
-            this.bRefreshParentForm = true;
             if (bUpdated)
             {
                 ShowPerson();
@@ -177,7 +173,6 @@ namespace CheckBase
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
                 string strID = txtId.Text;
-                this.bRefreshParentForm = true;
 
                 string delete_person = string.Format("delete from person_info_min where xh='{0}';"
                     + "delete from person_finger_print where xh='{0}';"

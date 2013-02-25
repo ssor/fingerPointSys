@@ -31,6 +31,7 @@ namespace CheckBase
 
             Program.frmIdentify = new frmUserIdentify();
             Program.frmIdentify.unique_check_id = this.lblCheckGuid.Text;
+            //Program.frmIdentify.unique_check_id = "prefix20130224222727";
 
             this.Close();
 
