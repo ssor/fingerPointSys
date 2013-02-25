@@ -31,17 +31,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUserIdentify));
             this.btnStart = new System.Windows.Forms.Button();
             this.lblName = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gbNotChecked = new System.Windows.Forms.GroupBox();
-            this.gbChecked = new System.Windows.Forms.GroupBox();
             this.dgvNotChecked = new System.Windows.Forms.DataGridView();
+            this.gbChecked = new System.Windows.Forms.GroupBox();
             this.dgvChecked = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.matrixCircularProgressControl1 = new LogisTechBase.MatrixCircularProgressControl();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbNotChecked.SuspendLayout();
-            this.gbChecked.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNotChecked)).BeginInit();
+            this.gbChecked.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChecked)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnStart
@@ -65,16 +65,6 @@
             this.lblName.TabIndex = 2;
             this.lblName.Text = "label2";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::ZkFingerDemo.Properties.Resources.business_user_search;
-            this.pictureBox1.Location = new System.Drawing.Point(70, 50);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(182, 203);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
             // gbNotChecked
             // 
             this.gbNotChecked.Controls.Add(this.dgvNotChecked);
@@ -84,16 +74,6 @@
             this.gbNotChecked.TabIndex = 5;
             this.gbNotChecked.TabStop = false;
             this.gbNotChecked.Text = "未考勤";
-            // 
-            // gbChecked
-            // 
-            this.gbChecked.Controls.Add(this.dgvChecked);
-            this.gbChecked.Location = new System.Drawing.Point(303, 248);
-            this.gbChecked.Name = "gbChecked";
-            this.gbChecked.Size = new System.Drawing.Size(395, 240);
-            this.gbChecked.TabIndex = 6;
-            this.gbChecked.TabStop = false;
-            this.gbChecked.Text = "已考勤";
             // 
             // dgvNotChecked
             // 
@@ -107,6 +87,16 @@
             this.dgvNotChecked.Size = new System.Drawing.Size(389, 210);
             this.dgvNotChecked.TabIndex = 0;
             // 
+            // gbChecked
+            // 
+            this.gbChecked.Controls.Add(this.dgvChecked);
+            this.gbChecked.Location = new System.Drawing.Point(303, 248);
+            this.gbChecked.Name = "gbChecked";
+            this.gbChecked.Size = new System.Drawing.Size(395, 240);
+            this.gbChecked.TabIndex = 6;
+            this.gbChecked.TabStop = false;
+            this.gbChecked.Text = "已考勤";
+            // 
             // dgvChecked
             // 
             this.dgvChecked.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -118,15 +108,25 @@
             this.dgvChecked.Size = new System.Drawing.Size(389, 220);
             this.dgvChecked.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ZkFingerDemo.Properties.Resources.business_user_search;
+            this.pictureBox1.Location = new System.Drawing.Point(70, 50);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(182, 203);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
             // matrixCircularProgressControl1
             // 
             this.matrixCircularProgressControl1.BackColor = System.Drawing.Color.Transparent;
             this.matrixCircularProgressControl1.Interval = 60;
-            this.matrixCircularProgressControl1.Location = new System.Drawing.Point(115, 277);
+            this.matrixCircularProgressControl1.Location = new System.Drawing.Point(100, 299);
             this.matrixCircularProgressControl1.MinimumSize = new System.Drawing.Size(28, 28);
             this.matrixCircularProgressControl1.Name = "matrixCircularProgressControl1";
             this.matrixCircularProgressControl1.Rotation = LogisTechBase.MatrixCircularProgressControl.Direction.CLOCKWISE;
-            this.matrixCircularProgressControl1.Size = new System.Drawing.Size(84, 80);
+            this.matrixCircularProgressControl1.Size = new System.Drawing.Size(121, 121);
             this.matrixCircularProgressControl1.StartAngle = 270F;
             this.matrixCircularProgressControl1.TabIndex = 4;
             this.matrixCircularProgressControl1.TickColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(58)))), ((int)(((byte)(58)))));
@@ -149,11 +149,11 @@
             this.Name = "frmUserIdentify";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "正在考勤";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.gbNotChecked.ResumeLayout(false);
-            this.gbChecked.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvNotChecked)).EndInit();
+            this.gbChecked.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvChecked)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -38,6 +38,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnHistoryRecord = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -123,11 +124,22 @@
             this.label5.TabIndex = 1;
             this.label5.Text = "注：时间段之外的考勤记录无效";
             // 
+            // btnHistoryRecord
+            // 
+            this.btnHistoryRecord.Location = new System.Drawing.Point(351, 18);
+            this.btnHistoryRecord.Name = "btnHistoryRecord";
+            this.btnHistoryRecord.Size = new System.Drawing.Size(91, 23);
+            this.btnHistoryRecord.TabIndex = 6;
+            this.btnHistoryRecord.Text = "选择历史记录";
+            this.btnHistoryRecord.UseVisualStyleBackColor = true;
+            this.btnHistoryRecord.Click += new System.EventHandler(this.btnHistoryRecord_Click);
+            // 
             // frmCheckInit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(483, 301);
+            this.Controls.Add(this.btnHistoryRecord);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtInfo);
@@ -162,5 +174,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnHistoryRecord;
     }
 }

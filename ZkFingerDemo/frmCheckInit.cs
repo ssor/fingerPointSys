@@ -43,5 +43,17 @@ namespace CheckBase
             this.Close();
         }
 
+        private void btnHistoryRecord_Click(object sender, EventArgs e)
+        {
+            HistoryCheckRecord history = new HistoryCheckRecord();
+            history.checkInit = this;
+            history.ShowDialog();
+        }
+        public void set_check_record_info(string id, string info, string create_time)
+        {
+            this.lblCheckGuid.Text = id;
+            this.dtpStart.Value = DateTime.Parse(create_time);
+            this.txtInfo.Text = info;
+        }
     }
 }

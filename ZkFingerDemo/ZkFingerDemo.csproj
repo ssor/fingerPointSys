@@ -60,6 +60,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HistoryCheckRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoryCheckRecord.Designer.cs">
+      <DependentUpon>HistoryCheckRecord.cs</DependentUpon>
+    </Compile>
     <Compile Include="public\ConfigDB.cs" />
     <Compile Include="public\CsharpSQLiteHelper.cs" />
     <Compile Include="enums.cs" />
@@ -110,6 +116,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FingerMainForm.resx">
       <DependentUpon>FingerMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoryCheckRecord.resx">
+      <DependentUpon>HistoryCheckRecord.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="public\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
