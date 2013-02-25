@@ -207,13 +207,20 @@ namespace CheckBase
             {
                 txtId.Text = tb.Rows[0]["学号"].ToString();
                 txtName.Text = tb.Rows[0]["姓名"].ToString();
-                txtRegisterState.Text = tb.Rows[0]["登记状态"].ToString();
+                string state = tb.Rows[0]["登记状态"].ToString();
+                txtRegisterState.Text = state;
+                if (state == "已登记")
+                {
+                    this.btnRegister.Enabled = false;
+                }
+                else
+                {
+                    this.btnRegister.Enabled = true;
+                }
                 txtTel.Text = tb.Rows[0]["电话"].ToString();
                 txtMail.Text = tb.Rows[0]["邮箱"].ToString();
                 txtnj.Text = tb.Rows[0]["年级"].ToString();
                 txtbj.Text = tb.Rows[0]["班级"].ToString();
-                //txtTel.Text = tb.Rows[0][4].ToString();
-                //txtMail.Text = tb.Rows[0][5].ToString();
             }
             else
             {
@@ -235,7 +242,17 @@ namespace CheckBase
                 //txtId.Text=
                 txtId.Text = dataGridView1.Rows[e.RowIndex].Cells["学号"].Value.ToString();
                 txtName.Text = dataGridView1.Rows[e.RowIndex].Cells["姓名"].Value.ToString();
-                txtRegisterState.Text = dataGridView1.Rows[e.RowIndex].Cells["登记状态"].Value.ToString();
+                string state = dataGridView1.Rows[e.RowIndex].Cells["登记状态"].Value.ToString();
+                txtRegisterState.Text = state;
+                if (state == "已登记")
+                {
+                    this.btnRegister.Enabled = false;
+                }
+                else
+                {
+                    this.btnRegister.Enabled = true;
+
+                }
                 txtnj.Text = dataGridView1.Rows[e.RowIndex].Cells["年级"].Value.ToString();
                 txtbj.Text = dataGridView1.Rows[e.RowIndex].Cells["班级"].Value.ToString();
                 txtTel.Text = dataGridView1.Rows[e.RowIndex].Cells["电话"].Value.ToString();

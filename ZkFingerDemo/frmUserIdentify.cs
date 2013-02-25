@@ -72,7 +72,7 @@ namespace ZkFingerDemo
             this.matrixCircularProgressControl1.Start();
         }
         void refresh_check_list()
-        { 
+        {
             // 初始化待考勤人员列表
             string select_not_checked = "select p.xh \"学号\", p.xm \"姓名\" "
                 + "from person_info_min as p  where p.xh not in(select xh from CheckRecords where record_id = '{0}');";
@@ -84,8 +84,32 @@ namespace ZkFingerDemo
                 + "from person_info_min as p  where p.xh in(select xh from CheckRecords where record_id = '{0}');";
             DataTable dt_checked = CsharpSQLiteHelper.ExecuteTable(select_checked, new object[] { this.unique_check_id });
             this.dgvChecked.DataSource = dt_checked;
-            this.gbChecked.Text = string.Format("已考勤共{0}人", dt_checked.Rows.Count.ToString());        
+            this.gbChecked.Text = string.Format("已考勤共{0}人", dt_checked.Rows.Count.ToString());
+
+            this.format_dgv(this.dgvChecked);
+            this.format_dgv(this.dgvNotChecked);
         }
+        void format_dgv(DataGridView dgv)
+        {
+            dgv.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            int headerW = dgv.RowHeadersWidth;
+            int columnsW = 0;
+            DataGridViewColumnCollection columns = dgv.Columns;
+            for (int i = 0; i < columns.Count; i++)
+            {
+                columnsW += columns[i].Width;
+            }
+            if (columnsW + headerW < dgv.Width)
+            {
+                int leftTotalWidht = dgv.Width - columnsW - headerW - 2;
+                int eachColumnAddedWidth = leftTotalWidht / columns.Count;
+                for (int i = 0; i < columns.Count; i++)
+                {
+                    columns[i].Width += eachColumnAddedWidth;
+                }
+            }
+        }
+
         public void change_control_state(int state, object o)
         {
             switch (state)

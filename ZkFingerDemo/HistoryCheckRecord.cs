@@ -40,7 +40,30 @@ namespace ZkFingerDemo
             string select = "SELECT record_id \"编号\",info \"备注\",create_time \"创建时间\" FROM check_record_info order by create_time desc;";
             DataTable dt = CsharpSQLiteHelper.ExecuteTable(select, null);
             this.dataGridView1.DataSource = dt;
+
+            this.format_dgv(this.dataGridView1);
         }
+        void format_dgv(DataGridView dgv)
+        {
+            dgv.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            int headerW = dgv.RowHeadersWidth;
+            int columnsW = 0;
+            DataGridViewColumnCollection columns = dgv.Columns;
+            for (int i = 0; i < columns.Count; i++)
+            {
+                columnsW += columns[i].Width;
+            }
+            if (columnsW + headerW < dgv.Width)
+            {
+                int leftTotalWidht = dgv.Width - columnsW - headerW - 2;
+                int eachColumnAddedWidth = leftTotalWidht / columns.Count;
+                for (int i = 0; i < columns.Count; i++)
+                {
+                    columns[i].Width += eachColumnAddedWidth;
+                }
+            }
+        }
+
 
         private void btnOk_Click(object sender, EventArgs e)
         {
