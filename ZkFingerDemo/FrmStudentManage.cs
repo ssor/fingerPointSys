@@ -38,7 +38,7 @@ namespace CheckBase
         {
             string select_all = "select p.xh \"学号\", p.xm \"姓名\","
                 + " case(f.print) when '' then '未登记' else '已登记' end \"登记状态\" "
-                + ", pe.nj \"年级\", pe.bj \"班级\", pe.tel \"电话\", pe.email \"邮箱\" "
+                + ", pe.nj_name \"年级\", pe.bj_name \"班级\", pe.tel \"电话\", pe.email \"邮箱\" "
                 + " from person_info_min as p,person_finger_print as f ,person_expand_info as pe"
                 + " where p.xh=f.xh  and p.xh=pe.xh  order  by p.xh;";
             DataTable dt = CsharpSQLiteHelper.ExecuteTable(select_all, null);
@@ -108,8 +108,8 @@ namespace CheckBase
                 string tel = txtTel.Text;
                 string email = txtMail.Text;
                 string insert_person = string.Format("insert into person_info_min values('{0}','{1}');", strID, name)
-                    + string.Format("insert into person_expand_info(xh,nj,bj,tel,email) values('{0}','{1}','{2}','{3}','{4}');",
-                    strID, nj, bj, tel, email)
+                    + string.Format("insert into person_expand_info(xh,nj_name,bj_name,tel,email) values('{0}','{1}','{2}','{3}', '{4}');",
+                                    strID, nj, bj, tel, email)
                 + string.Format("insert into person_finger_print values('{0}','');", strID);
                 int r = CsharpSQLiteHelper.ExecuteNonQuery(insert_person, null);
                 if (r > 0)
