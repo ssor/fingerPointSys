@@ -44,9 +44,7 @@
             this.关于AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.版本历史VToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.ZKFPEngX1 = new AxZKFPEngXControl.AxZKFPEngX();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ZKFPEngX1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -63,9 +61,9 @@
             this.sensorConnectionState.AutoSize = true;
             this.sensorConnectionState.Location = new System.Drawing.Point(68, 409);
             this.sensorConnectionState.Name = "sensorConnectionState";
-            this.sensorConnectionState.Size = new System.Drawing.Size(41, 12);
+            this.sensorConnectionState.Size = new System.Drawing.Size(59, 12);
             this.sensorConnectionState.TabIndex = 1;
-            this.sensorConnectionState.Text = "未连接";
+            this.sensorConnectionState.Text = "未连接111";
             // 
             // menuStrip1
             // 
@@ -121,14 +119,14 @@
             // 学生管理MToolStripMenuItem
             // 
             this.学生管理MToolStripMenuItem.Name = "学生管理MToolStripMenuItem";
-            this.学生管理MToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.学生管理MToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.学生管理MToolStripMenuItem.Text = "学生管理(&M)";
             this.学生管理MToolStripMenuItem.Click += new System.EventHandler(this.学生管理MToolStripMenuItem_Click);
             // 
             // 开始考勤SToolStripMenuItem
             // 
             this.开始考勤SToolStripMenuItem.Name = "开始考勤SToolStripMenuItem";
-            this.开始考勤SToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.开始考勤SToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.开始考勤SToolStripMenuItem.Text = "开始考勤(&S)";
             this.开始考勤SToolStripMenuItem.Click += new System.EventHandler(this.开始考勤SToolStripMenuItem_Click);
             // 
@@ -165,23 +163,12 @@
             this.toolStripMenuItem2.Text = "登记指纹(&R)";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
-            // ZKFPEngX1
-            // 
-            this.ZKFPEngX1.Enabled = true;
-            this.ZKFPEngX1.Location = new System.Drawing.Point(41, 301);
-            this.ZKFPEngX1.Name = "ZKFPEngX1";
-            this.ZKFPEngX1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("ZKFPEngX1.OcxState")));
-            this.ZKFPEngX1.Size = new System.Drawing.Size(24, 24);
-            this.ZKFPEngX1.TabIndex = 20;
-            this.ZKFPEngX1.Visible = false;
-            // 
             // FingerMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(726, 434);
             this.Controls.Add(this.sensorConnectionState);
-            this.Controls.Add(this.ZKFPEngX1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -195,7 +182,6 @@
             this.Load += new System.EventHandler(this.FingerMainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ZKFPEngX1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

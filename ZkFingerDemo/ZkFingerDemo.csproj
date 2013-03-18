@@ -71,6 +71,7 @@
     <Compile Include="HistoryCheckRecord.Designer.cs">
       <DependentUpon>HistoryCheckRecord.cs</DependentUpon>
     </Compile>
+    <Compile Include="Notifier.cs" />
     <Compile Include="public\ConfigDB.cs" />
     <Compile Include="public\CsharpSQLiteHelper.cs" />
     <Compile Include="enums.cs" />
